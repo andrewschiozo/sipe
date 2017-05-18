@@ -1,0 +1,99 @@
+
+<!-- Trigger the modal with a button -->
+<button type="button" class="btn btn-primary">
+    <span class="glyphicon glyphicon-plus"></span> Nova turma
+</button>
+
+<table class="table table-responsive table-hover">
+    <thead>
+        <tr>
+            <th class="text-center">#</th>
+            <th class="text-center">Nome</th>
+            <th class="text-center">Curso</th>
+            <th class="text-center">Horário</th>
+            <th class="text-center">Nº Alunos</th>
+            <th class="text-center col-md-2">Professor</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+</table>
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h5 class="modal-title">Alocação de professor</h5>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <h4><small>Turma:</small> Alfa</h4>
+                    </div>
+                    <div class="form-group">
+                        <h4><small>Curso:</small> Inglês</h4>
+                    </div>
+                    <div class="form-group">
+                        <h4><small>Horário:</small> 13:30</h4>
+                    </div>
+                    <div class="form-group">
+                        <select class="form-control">
+                            <option>Escolha um professor...</option>
+                            <option>Vanessa Goes</option>
+                            <option>Mariana Conta um</option>
+                            <option>Letícia Figueiredo</option>
+                            <option>Fernanda Amaral</option>
+                        </select>
+                    </div>
+                    <p class="alert alert-success hidden" id="msg-sucesso">Professor alocado com sucesso!!</p>
+                    <div class="form-group">
+                        <button type="button" id="btn-salvar" class="btn btn-primary btn-block">Salvar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<script>
+    $(function(){
+        $.get(url_data + "turma.json", function(data){
+            var dataTbody = "";
+            $.each(data, function(index, turmaObject){
+                dataTbody += "<tr>\n";
+                $.each(turmaObject, function(attr, value){
+                    if(attr == 'id'
+                        || attr == 'curso'
+                        || attr == 'horario'
+                        || attr == 'alunos')
+                    {
+                        dataTbody += "\t<td class='text-center'>" + value + "</td>\n";
+                    }
+                    else if(attr == 'professor' && value == '-')
+                    {
+                        dataTbody += "<td><button type='button' class='btn btn-warning btn-sm' data-toggle='modal' data-target='#myModal'>Alocar Professor</button></td>";
+                    }
+                    else
+                    {
+                        dataTbody += "\t<td>" + value + "</td>\n";
+                    }
+                });
+                dataTbody += "</tr>\n";
+            });
+            console.log(dataTbody);
+            $('.table tbody').html(dataTbody);
+        });
+
+        $("#btn-salvar").click(function(){
+            $("#msg-sucesso").removeClass("hidden");
+        })
+    });
+</script>

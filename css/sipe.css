@@ -1,0 +1,19 @@
+body{
+    padding-top: 70px;
+}
+
+.va-center{
+    vertical-align: middle;
+}
+
+.text-white {
+    color: #ccc;
+}
+
+.dashboard-value h1{
+    font-size: 50pt;
+}
+#img-profile{
+    width: 48px;
+    height: 48px;
+}

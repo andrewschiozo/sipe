@@ -1,0 +1,108 @@
+
+<!-- Trigger the modal with a button -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+    <span class="glyphicon glyphicon-plus"></span> Novo professor
+</button>
+
+<table class="table table-responsive table-hover">
+    <thead>
+        <tr>
+            <th class="text-center" style="vertical-align: middle" rowspan="2">#</th>
+            <th class="text-center" style="vertical-align: middle" rowspan="2">Nome</th>
+            <th class="text-center" style="vertical-align: middle" rowspan="2">Telefone</th>
+            <th class="text-center" style="vertical-align: middle" rowspan="2">Endereço</th>
+            <th class="text-center" style="vertical-align: middle" colspan="3">Competências</th>
+        </tr>
+        <tr>
+            <th class="text-center" style="vertical-align: middle">Inglês</th>
+            <th class="text-center" style="vertical-align: middle">Espanhol</th>
+            <th class="text-center" style="vertical-align: middle">Italiano</th>
+        </tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+</table>
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Novo professor</h4>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <input type="text" placeholder="Nome" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <input type="text" placeholder="Telefone" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <input type="text" placeholder="Endereço" class="form-control" />
+                    </div>
+                    <div class="form-group text-center">
+                        <p>Competências</p>
+                        <label class="checkbox-inline"><input type="checkbox" value="">Inglês</label>
+                        <label class="checkbox-inline"><input type="checkbox" value="">Espanhol</label>
+                        <label class="checkbox-inline"><input type="checkbox" value="">Italiano</label>
+                    </div>
+                    <div class="form-group">
+                        <button type="button" class="btn btn-primary btn-block" data-dismiss="modal">Salvar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<script>
+    $(function(){
+        $.get(url_data + "professor.json", function(data){
+            var dataTbody = "";
+            $.each(data, function(index, professorObject){
+                dataTbody += "<tr>\n";
+               $.each(professorObject, function(attr, value){
+                   if(attr == 'id'
+                      || attr == 'telefone'
+                      || attr == 'ingles'
+                      || attr == 'espanhol'
+                      || attr == 'italiano')
+                   {
+                       if(attr == 'ingles'
+                           || attr == 'espanhol'
+                           || attr == 'italiano')
+                       {
+                           if(value)
+                           {
+                               dataTbody += "\t<td class='text-center'><span class='glyphicon glyphicon-ok'></span></td>\n";
+                           }
+                           else
+                           {
+                               dataTbody += "\t<td></td>\n";
+                           }
+
+                       }
+                       else
+                       {
+                           dataTbody += "\t<td class='text-center'>" + value + "</td>\n";
+                       }
+                   }
+                   else
+                   {
+                       dataTbody += "\t<td>" + value + "</td>\n";
+                   }
+               });
+                dataTbody += "</tr>\n";
+            });
+            console.log(dataTbody);
+            $('.table tbody').html(dataTbody);
+        });
+    })
+</script>
