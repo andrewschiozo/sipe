@@ -72,3 +72,22 @@ $turma3 = array(
 
 echo json_encode(array($turma1, $turma2, $turma3));
 echo '<hr>';
+
+$curso1 = array(
+                'id' => 1,
+                'idioma' => 'Espanhol',
+                'modulos' => 'Básico, Intermediário');
+
+$curso2 = array(
+    'id' => 2,
+    'idioma' => 'Inglês',
+    'modulos' => 'Básico, Intermediário, Avançado, Conversação');
+
+
+$curso3 = array(
+    'id' => 3,
+    'idioma' => 'Italiano',
+    'modulos' => 'Básico, Intermediário, Avançado');
+
+echo json_encode(array($curso1, $curso2, $curso3));
+echo '<hr>';
