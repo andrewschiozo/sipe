@@ -3,8 +3,8 @@ Sugestão de telas para o projeto de modelagem de sistemas orientados a objetos 
 
 ### Motivação
 Instituição: UNIP - Sistemas de Informação
-Disciplina: Atividades Práticas Supervisionadas 5º Semestre.
-Semestre: 5º
+<br/>Disciplina: Atividades Práticas Supervisionadas 5º Semestre.
+<br/>Semestre: 5º
 
 ### Demonstração
 <a href="http://srvsandbox.pe.hu/sites/sipe/" target="_blank">http://srvsandbox.pe.hu/sites/sipe/</a>
