@@ -3,7 +3,7 @@ Sugestão de telas para o projeto de modelagem de sistemas orientados a objetos 
 
 ### Motivação
 Instituição: UNIP - Sistemas de Informação
-<br/>Disciplina: Atividades Práticas Supervisionadas 5º Semestre.
+<br/>Disciplina: Atividades Práticas Supervisionadas
 <br/>Semestre: 5º
 
 ### Demonstração
