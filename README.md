@@ -1,4 +1,4 @@
-# SIPE 9 Sistemas Integrados de Processos Escolares
+# SIPE - Sistemas Integrados de Processos Escolares
 Sugestão de telas para o projeto de modelagem de sistemas orientados a objetos cujo tema é: Sistematização de processos escolares.
 
 ### Motivação
